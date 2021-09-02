@@ -25,7 +25,9 @@ BEGIN
         nombreMat VARCHAR(50),
 		descripcionMat VARCHAR(50),
 		stock FLOAT,
+		medida VARCHAR(10),
 		stockMinimo FLOAT,
+		estado INT
     )
 END
 GO
@@ -46,15 +48,7 @@ BEGIN
         idProd INT,
 		idMaterial INT,
         cantidad FLOAT,
-		idMedida INT
-    )
-END
-GO
-IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='Medida')
-BEGIN
-    CREATE TABLE Medida (
-        idMedida INT IDENTITY (1, 1),
-        nombre VARCHAR(50)
+		medida VARCHAR(10)
     )
 END
 GO
@@ -84,20 +78,58 @@ BEGIN
     )
 END
 GO
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='Persona')
+BEGIN
+    CREATE TABLE Persona (
+		idPersona INT IDENTITY (1, 1),
+		nombre VARCHAR(50),
+		apellidos VARCHAR(50),
+		correo VARCHAR(50),
+		puesto VARCHAR(50),
+        idUsuario INT
+    )
+END
+GO
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='Pedido')
+BEGIN
+    CREATE TABLE Pedido (
+		idPedido INT IDENTITY (1, 1),
+		idPersona INT,
+		fechaPedido DATE
+    )
+END
+GO
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='Venta')
+BEGIN
+    CREATE TABLE Venta (
+		idPedido INT,
+		idProd INT,
+		cantidad FLOAT,
+		precioF money
+    )
+END
+GO
 -- LLAVES PRIMARIAS
 ALTER TABLE Usuarios ADD CONSTRAINT pk_Usuarios PRIMARY KEY (idUser);
 ALTER TABLE MateriaPrima ADD CONSTRAINT pk_MateriaPrima PRIMARY KEY (idMaterial);
 ALTER TABLE Productos ADD CONSTRAINT pk_Productos PRIMARY KEY (idProd);
-ALTER TABLE Medida ADD CONSTRAINT pk_Medida PRIMARY KEY (idMedida);
 ALTER TABLE Vista ADD CONSTRAINT pk_Vistas PRIMARY KEY (idVista);
 ALTER TABLE Accion ADD CONSTRAINT pk_Accion PRIMARY KEY (idAccion);
+ALTER TABLE Persona ADD CONSTRAINT pk_Persona PRIMARY KEY (idPersona);
+ALTER TABLE Pedido ADD CONSTRAINT pk_Pedido PRIMARY KEY (idPedido);
 GO
 -- LLAVES FORANEAS
+ALTER TABLE Persona ADD CONSTRAINT fk_Persona_Usuarios FOREIGN KEY (idUsuario) REFERENCES Usuarios (idUser)
+ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE ProductosMaterial ADD CONSTRAINT fk_Pm_Productos FOREIGN KEY (idProd) REFERENCES Productos (idProd)
 ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE ProductosMaterial ADD CONSTRAINT fk_Pm_MateriaPrima FOREIGN KEY (idMaterial) REFERENCES MateriaPrima (idMaterial)
 ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE ProductosMaterial ADD CONSTRAINT fk_Pm_Medida FOREIGN KEY (idMedida) REFERENCES Medida (idMedida)
+ALTER TABLE Pedido ADD CONSTRAINT fk_Pedido_Persona FOREIGN KEY (idPersona) REFERENCES Persona (idPersona)
+ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE Venta ADD CONSTRAINT fk_Venta_Pedido FOREIGN KEY (idPedido) REFERENCES Pedido (idPedido)
+ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE Venta ADD CONSTRAINT fk_Venta_Productos FOREIGN KEY (idProd) REFERENCES Productos (idProd)
 ON UPDATE CASCADE ON DELETE CASCADE;
 
 ALTER TABLE Usuarios ADD CONSTRAINT fk_usuario_Vista FOREIGN KEY (rol) REFERENCES Vista (idVista)
