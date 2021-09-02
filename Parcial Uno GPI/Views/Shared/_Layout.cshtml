@@ -1,0 +1,54 @@
+﻿@using Parcial_Uno_GPI.Models
+@{
+    Response.Cache.SetCacheability(HttpCacheability.ServerAndNoCache);
+    Response.Cache.SetAllowResponseInBrowserHistory(false);
+    Response.Cache.SetNoStore();
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/estilos")
+    @Scripts.Render("~/bundles/mensaje")
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="/">
+            <img src="../Content/images/balanza.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+            @ViewBag.Title
+        </a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav w-100 justify-content-between">
+                @{
+                    if (Session["permiso"] != null)
+                    {
+                        <li class="nav-item">@Html.ActionLink(MenuSingleton.Instance.texto1, "Home", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        <span class="d-inline-flex justify-content-end">
+                        <li class="nav-item mr-3"><a class="nav-link text-white">usuario: @Session["nombre"]</a></li>
+                        <li class="nav-item text-white" style="display:block ruby"><i class="fad fa-sign-out"></i>@Html.ActionLink(" Logout", "LogOut", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        </span>
+                    }
+                }
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid py-4">
+        @RenderBody()
+        <hr />
+        <footer class="text-center">
+            <p><span class="text-white mr-5">Ing. William Vásquez &reg;</span></p>
+            <p><span class="text-white mr-5">Ing. William Vásquez &reg;</span></p>
+            <p><span class="text-white mr-5">Ing. William Vásquez &reg;</span></p>
+            <p><span class="text-white mr-5">Ing. William Vásquez &reg;</span></p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

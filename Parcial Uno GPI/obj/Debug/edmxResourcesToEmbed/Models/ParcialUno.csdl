@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Ex1GPIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Accion">
+    <Key>
+      <PropertyRef Name="idAccion" />
+    </Key>
+    <Property Name="idAccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="accion1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="Int32" />
+  </EntityType>
+  <EntityType Name="MateriaPrima">
+    <Key>
+      <PropertyRef Name="idMaterial" />
+    </Key>
+    <Property Name="idMaterial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreMat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcionMat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="stock" Type="Double" />
+    <Property Name="stockMinimo" Type="Double" />
+  </EntityType>
+  <EntityType Name="Medida">
+    <Key>
+      <PropertyRef Name="idMedida" />
+    </Key>
+    <Property Name="idMedida" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Productos">
+    <Key>
+      <PropertyRef Name="idProd" />
+    </Key>
+    <Property Name="idProd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreProd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcionProd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="precio" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="estado" Type="Int32" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="idUser" />
+    </Key>
+    <Property Name="idUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nameUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="passUser" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="rol" Type="Int32" />
+    <NavigationProperty Name="Vista" Relationship="Self.fk_usuario_Vista" FromRole="Usuarios" ToRole="Vista" />
+  </EntityType>
+  <EntityType Name="Vista">
+    <Key>
+      <PropertyRef Name="idVista" />
+    </Key>
+    <Property Name="idVista" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vista1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="Int32" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.fk_usuario_Vista" FromRole="Vista" ToRole="Usuarios" />
+  </EntityType>
+  <Association Name="fk_usuario_Vista">
+    <End Role="Vista" Type="Self.Vista" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vista">
+        <PropertyRef Name="idVista" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ParcialUnoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accion" EntityType="Self.Accion" />
+    <EntitySet Name="MateriaPrima" EntityType="Self.MateriaPrima" />
+    <EntitySet Name="Medida" EntityType="Self.Medida" />
+    <EntitySet Name="Productos" EntityType="Self.Productos" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+    <EntitySet Name="Vista" EntityType="Self.Vista" />
+    <AssociationSet Name="fk_usuario_Vista" Association="Self.fk_usuario_Vista">
+      <End Role="Vista" EntitySet="Vista" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

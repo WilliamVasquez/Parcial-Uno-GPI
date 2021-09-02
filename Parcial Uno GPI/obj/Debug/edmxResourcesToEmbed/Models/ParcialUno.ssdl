@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Ex1GPIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Accion">
+    <Key>
+      <PropertyRef Name="idAccion" />
+    </Key>
+    <Property Name="idAccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="accion" Type="varchar" MaxLength="25" />
+    <Property Name="estado" Type="int" />
+  </EntityType>
+  <EntityType Name="MateriaPrima">
+    <Key>
+      <PropertyRef Name="idMaterial" />
+    </Key>
+    <Property Name="idMaterial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreMat" Type="varchar" MaxLength="50" />
+    <Property Name="descripcionMat" Type="varchar" MaxLength="50" />
+    <Property Name="stock" Type="float" />
+    <Property Name="stockMinimo" Type="float" />
+  </EntityType>
+  <EntityType Name="Medida">
+    <Key>
+      <PropertyRef Name="idMedida" />
+    </Key>
+    <Property Name="idMedida" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Productos">
+    <Key>
+      <PropertyRef Name="idProd" />
+    </Key>
+    <Property Name="idProd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreProd" Type="varchar" MaxLength="50" />
+    <Property Name="descripcionProd" Type="varchar" MaxLength="50" />
+    <Property Name="precio" Type="money" />
+    <Property Name="estado" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Ex1GPI.dbo.ProductosMaterial' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="ProductosMaterial">
+          <Property Name="idProd" Type="int" />
+          <Property Name="idMaterial" Type="int" />
+          <Property Name="cantidad" Type="float" />
+          <Property Name="idMedida" Type="int" />
+        </EntityType>-->
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Ex1GPI.dbo.UsuarioAccion' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="UsuarioAccion">
+          <Property Name="idUsuario" Type="int" />
+          <Property Name="idAccion" Type="int" />
+        </EntityType>-->
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="idUser" />
+    </Key>
+    <Property Name="idUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nameUser" Type="varchar" MaxLength="50" />
+    <Property Name="passUser" Type="varchar" MaxLength="100" />
+    <Property Name="rol" Type="int" />
+  </EntityType>
+  <EntityType Name="Vista">
+    <Key>
+      <PropertyRef Name="idVista" />
+    </Key>
+    <Property Name="idVista" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vista" Type="varchar" MaxLength="25" />
+    <Property Name="estado" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+error 6004: The table 'Ex1GPI.dbo.UsuarioAccion' is referenced by a relationship, but cannot be found.
+        <Association Name="fk_Accion_UsuarioAccion" />-->
+  <!--Errors Found During Generation:
+error 6004: The table 'Ex1GPI.dbo.ProductosMaterial' is referenced by a relationship, but cannot be found.
+        <Association Name="fk_Pm_MateriaPrima" />-->
+  <!--Errors Found During Generation:
+error 6004: The table 'Ex1GPI.dbo.ProductosMaterial' is referenced by a relationship, but cannot be found.
+        <Association Name="fk_Pm_Medida" />-->
+  <!--Errors Found During Generation:
+error 6004: The table 'Ex1GPI.dbo.ProductosMaterial' is referenced by a relationship, but cannot be found.
+        <Association Name="fk_Pm_Productos" />-->
+  <!--Errors Found During Generation:
+error 6004: The table 'Ex1GPI.dbo.UsuarioAccion' is referenced by a relationship, but cannot be found.
+        <Association Name="fk_usuario_UsuarioAccion" />-->
+  <Association Name="fk_usuario_Vista">
+    <End Role="Vista" Type="Self.Vista" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vista">
+        <PropertyRef Name="idVista" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Ex1GPIModelStoreContainer">
+    <EntitySet Name="Accion" EntityType="Self.Accion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MateriaPrima" EntityType="Self.MateriaPrima" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Medida" EntityType="Self.Medida" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vista" EntityType="Self.Vista" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_usuario_Vista" Association="Self.fk_usuario_Vista">
+      <End Role="Vista" EntitySet="Vista" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
