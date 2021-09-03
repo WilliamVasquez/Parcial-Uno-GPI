@@ -21,14 +21,28 @@
           <Property Name="nombreMat" Type="varchar" MaxLength="50" />
           <Property Name="descripcionMat" Type="varchar" MaxLength="50" />
           <Property Name="stock" Type="float" />
+          <Property Name="medida" Type="varchar" MaxLength="10" />
           <Property Name="stockMinimo" Type="float" />
+          <Property Name="estado" Type="int" />
         </EntityType>
-        <EntityType Name="Medida">
+        <EntityType Name="Pedido">
           <Key>
-            <PropertyRef Name="idMedida" />
+            <PropertyRef Name="idPedido" />
           </Key>
-          <Property Name="idMedida" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idPedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idPersona" Type="int" />
+          <Property Name="fechaPedido" Type="date" />
+        </EntityType>
+        <EntityType Name="Persona">
+          <Key>
+            <PropertyRef Name="idPersona" />
+          </Key>
+          <Property Name="idPersona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="apellidos" Type="varchar" MaxLength="50" />
+          <Property Name="correo" Type="varchar" MaxLength="50" />
+          <Property Name="puesto" Type="varchar" MaxLength="50" />
+          <Property Name="idUsuario" Type="int" />
         </EntityType>
         <EntityType Name="Productos">
           <Key>
@@ -40,26 +54,16 @@
           <Property Name="precio" Type="money" />
           <Property Name="estado" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'Ex1GPI.dbo.ProductosMaterial' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'Ex1GPI.dbo.ProductosMaterial' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="ProductosMaterial">
           <Property Name="idProd" Type="int" />
           <Property Name="idMaterial" Type="int" />
           <Property Name="cantidad" Type="float" />
-          <Property Name="idMedida" Type="int" />
+          <Property Name="medida" Type="varchar" MaxLength="10" />
         </EntityType>-->
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'Ex1GPI.dbo.UsuarioAccion' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'Ex1GPI.dbo.UsuarioAccion' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="UsuarioAccion">
           <Property Name="idUsuario" Type="int" />
           <Property Name="idAccion" Type="int" />
@@ -73,6 +77,14 @@ warning 6013: The table/view 'Ex1GPI.dbo.UsuarioAccion' does not have a primary 
           <Property Name="passUser" Type="varchar" MaxLength="100" />
           <Property Name="rol" Type="int" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'Ex1GPI.dbo.Venta' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="Venta">
+          <Property Name="idPedido" Type="int" />
+          <Property Name="idProd" Type="int" />
+          <Property Name="cantidad" Type="float" />
+          <Property Name="precioF" Type="money" />
+        </EntityType>-->
         <EntityType Name="Vista">
           <Key>
             <PropertyRef Name="idVista" />
@@ -81,20 +93,45 @@ warning 6013: The table/view 'Ex1GPI.dbo.UsuarioAccion' does not have a primary 
           <Property Name="vista" Type="varchar" MaxLength="25" />
           <Property Name="estado" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-error 6004: The table 'Ex1GPI.dbo.UsuarioAccion' is referenced by a relationship, but cannot be found.
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'Ex1GPI.dbo.UsuarioAccion', pero no se encuentra la tabla.
         <Association Name="fk_Accion_UsuarioAccion" />-->
-        <!--Errors Found During Generation:
-error 6004: The table 'Ex1GPI.dbo.ProductosMaterial' is referenced by a relationship, but cannot be found.
+        <Association Name="fk_Pedido_Persona">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="idPersona" />
+            </Principal>
+            <Dependent Role="Pedido">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Persona_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Persona" Type="Self.Persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="idUser" />
+            </Principal>
+            <Dependent Role="Persona">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'Ex1GPI.dbo.ProductosMaterial', pero no se encuentra la tabla.
         <Association Name="fk_Pm_MateriaPrima" />-->
-        <!--Errors Found During Generation:
-error 6004: The table 'Ex1GPI.dbo.ProductosMaterial' is referenced by a relationship, but cannot be found.
-        <Association Name="fk_Pm_Medida" />-->
-        <!--Errors Found During Generation:
-error 6004: The table 'Ex1GPI.dbo.ProductosMaterial' is referenced by a relationship, but cannot be found.
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'Ex1GPI.dbo.ProductosMaterial', pero no se encuentra la tabla.
         <Association Name="fk_Pm_Productos" />-->
-        <!--Errors Found During Generation:
-error 6004: The table 'Ex1GPI.dbo.UsuarioAccion' is referenced by a relationship, but cannot be found.
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'Ex1GPI.dbo.UsuarioAccion', pero no se encuentra la tabla.
         <Association Name="fk_usuario_UsuarioAccion" />-->
         <Association Name="fk_usuario_Vista">
           <End Role="Vista" Type="Self.Vista" Multiplicity="0..1">
@@ -110,14 +147,28 @@ error 6004: The table 'Ex1GPI.dbo.UsuarioAccion' is referenced by a relationship
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'Ex1GPI.dbo.Venta', pero no se encuentra la tabla.
+        <Association Name="fk_Venta_Pedido" />-->
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'Ex1GPI.dbo.Venta', pero no se encuentra la tabla.
+        <Association Name="fk_Venta_Productos" />-->
         <EntityContainer Name="Ex1GPIModelStoreContainer">
           <EntitySet Name="Accion" EntityType="Self.Accion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MateriaPrima" EntityType="Self.MateriaPrima" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Medida" EntityType="Self.Medida" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vista" EntityType="Self.Vista" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_Pedido_Persona" Association="Self.fk_Pedido_Persona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Pedido" EntitySet="Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Persona_Usuarios" Association="Self.fk_Persona_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Persona" EntitySet="Persona" />
+          </AssociationSet>
           <AssociationSet Name="fk_usuario_Vista" Association="Self.fk_usuario_Vista">
             <End Role="Vista" EntitySet="Vista" />
             <End Role="Usuarios" EntitySet="Usuarios" />
@@ -144,14 +195,31 @@ error 6004: The table 'Ex1GPI.dbo.UsuarioAccion' is referenced by a relationship
           <Property Name="nombreMat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="descripcionMat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="stock" Type="Double" />
+          <Property Name="medida" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="stockMinimo" Type="Double" />
+          <Property Name="estado" Type="Int32" />
         </EntityType>
-        <EntityType Name="Medida">
+        <EntityType Name="Pedido">
           <Key>
-            <PropertyRef Name="idMedida" />
+            <PropertyRef Name="idPedido" />
           </Key>
-          <Property Name="idMedida" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idPedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idPersona" Type="Int32" />
+          <Property Name="fechaPedido" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Persona" Relationship="Self.fk_Pedido_Persona" FromRole="Pedido" ToRole="Persona" />
+        </EntityType>
+        <EntityType Name="Persona">
+          <Key>
+            <PropertyRef Name="idPersona" />
+          </Key>
+          <Property Name="idPersona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="puesto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idUsuario" Type="Int32" />
+          <NavigationProperty Name="Pedido" Relationship="Self.fk_Pedido_Persona" FromRole="Persona" ToRole="Pedido" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.fk_Persona_Usuarios" FromRole="Persona" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="Productos">
           <Key>
@@ -163,16 +231,6 @@ error 6004: The table 'Ex1GPI.dbo.UsuarioAccion' is referenced by a relationship
           <Property Name="precio" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="estado" Type="Int32" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="Usuarios">
           <Key>
             <PropertyRef Name="idUser" />
@@ -181,6 +239,7 @@ error 6004: The table 'Ex1GPI.dbo.UsuarioAccion' is referenced by a relationship
           <Property Name="nameUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="passUser" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="rol" Type="Int32" />
+          <NavigationProperty Name="Persona" Relationship="Self.fk_Persona_Usuarios" FromRole="Usuarios" ToRole="Persona" />
           <NavigationProperty Name="Vista" Relationship="Self.fk_usuario_Vista" FromRole="Usuarios" ToRole="Vista" />
         </EntityType>
         <EntityType Name="Vista">
@@ -192,6 +251,34 @@ error 6004: The table 'Ex1GPI.dbo.UsuarioAccion' is referenced by a relationship
           <Property Name="estado" Type="Int32" />
           <NavigationProperty Name="Usuarios" Relationship="Self.fk_usuario_Vista" FromRole="Vista" ToRole="Usuarios" />
         </EntityType>
+        <Association Name="fk_Pedido_Persona">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="idPersona" />
+            </Principal>
+            <Dependent Role="Pedido">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Persona_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Persona" Type="Self.Persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="idUser" />
+            </Principal>
+            <Dependent Role="Persona">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_usuario_Vista">
           <End Role="Vista" Type="Self.Vista" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -209,11 +296,19 @@ error 6004: The table 'Ex1GPI.dbo.UsuarioAccion' is referenced by a relationship
         <EntityContainer Name="ParcialUnoEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Accion" EntityType="Self.Accion" />
           <EntitySet Name="MateriaPrima" EntityType="Self.MateriaPrima" />
-          <EntitySet Name="Medida" EntityType="Self.Medida" />
+          <EntitySet Name="Pedido" EntityType="Self.Pedido" />
+          <EntitySet Name="Persona" EntityType="Self.Persona" />
           <EntitySet Name="Productos" EntityType="Self.Productos" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
           <EntitySet Name="Vista" EntityType="Self.Vista" />
+          <AssociationSet Name="fk_Pedido_Persona" Association="Self.fk_Pedido_Persona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Pedido" EntitySet="Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Persona_Usuarios" Association="Self.fk_Persona_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Persona" EntitySet="Persona" />
+          </AssociationSet>
           <AssociationSet Name="fk_usuario_Vista" Association="Self.fk_usuario_Vista">
             <End Role="Vista" EntitySet="Vista" />
             <End Role="Usuarios" EntitySet="Usuarios" />
@@ -241,15 +336,30 @@ error 6004: The table 'Ex1GPI.dbo.UsuarioAccion' is referenced by a relationship
                 <ScalarProperty Name="nombreMat" ColumnName="nombreMat" />
                 <ScalarProperty Name="descripcionMat" ColumnName="descripcionMat" />
                 <ScalarProperty Name="stock" ColumnName="stock" />
+                <ScalarProperty Name="medida" ColumnName="medida" />
                 <ScalarProperty Name="stockMinimo" ColumnName="stockMinimo" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Medida">
-            <EntityTypeMapping TypeName="Ex1GPIModel.Medida">
-              <MappingFragment StoreEntitySet="Medida">
-                <ScalarProperty Name="idMedida" ColumnName="idMedida" />
+          <EntitySetMapping Name="Pedido">
+            <EntityTypeMapping TypeName="Ex1GPIModel.Pedido">
+              <MappingFragment StoreEntitySet="Pedido">
+                <ScalarProperty Name="idPedido" ColumnName="idPedido" />
+                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+                <ScalarProperty Name="fechaPedido" ColumnName="fechaPedido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Persona">
+            <EntityTypeMapping TypeName="Ex1GPIModel.Persona">
+              <MappingFragment StoreEntitySet="Persona">
+                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="puesto" ColumnName="puesto" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -261,17 +371,6 @@ error 6004: The table 'Ex1GPI.dbo.UsuarioAccion' is referenced by a relationship
                 <ScalarProperty Name="descripcionProd" ColumnName="descripcionProd" />
                 <ScalarProperty Name="precio" ColumnName="precio" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="Ex1GPIModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -311,7 +410,7 @@ error 6004: The table 'Ex1GPI.dbo.UsuarioAccion' is referenced by a relationship
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

@@ -1,0 +1,66 @@
+﻿@model Parcial_Uno_GPI.Models.MateriaPrima
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MateriaPrima</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreMat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreMat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcionMat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcionMat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.medida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.medida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stockMinimo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stockMinimo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idMaterial }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
