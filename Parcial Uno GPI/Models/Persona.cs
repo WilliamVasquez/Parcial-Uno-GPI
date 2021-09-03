@@ -12,19 +12,23 @@ namespace Parcial_Uno_GPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Vista
+    public partial class Persona
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Vista()
+        public Persona()
         {
-            this.Usuarios = new HashSet<Usuario>();
+            this.Pedidoes = new HashSet<Pedido>();
         }
     
-        public int idVista { get; set; }
-        public string vista1 { get; set; }
-        public Nullable<int> estado { get; set; }
+        public int idPersona { get; set; }
+        public string nombre { get; set; }
+        public string apellidos { get; set; }
+        public string correo { get; set; }
+        public string puesto { get; set; }
+        public Nullable<int> idUsuario { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Usuario> Usuarios { get; set; }
+        public virtual ICollection<Pedido> Pedidoes { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

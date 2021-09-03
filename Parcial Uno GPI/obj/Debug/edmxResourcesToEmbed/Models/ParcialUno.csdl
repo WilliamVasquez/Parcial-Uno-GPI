@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Ex1GPIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="ParcialUnoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Accion">
     <Key>
       <PropertyRef Name="idAccion" />
@@ -16,16 +16,33 @@
     <Property Name="nombreMat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="descripcionMat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="stock" Type="Double" />
+    <Property Name="medida" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="stockMinimo" Type="Double" />
+    <Property Name="estado" Type="Int32" />
   </EntityType>
-  <EntityType Name="Medida">
+  <EntityType Name="Pedido">
     <Key>
-      <PropertyRef Name="idMedida" />
+      <PropertyRef Name="idPedido" />
     </Key>
-    <Property Name="idMedida" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idPedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idPersona" Type="Int32" />
+    <Property Name="fechaPedido" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Persona" Relationship="Self.fk_Pedido_Persona" FromRole="Pedido" ToRole="Persona" />
   </EntityType>
-  <EntityType Name="Productos">
+  <EntityType Name="Persona">
+    <Key>
+      <PropertyRef Name="idPersona" />
+    </Key>
+    <Property Name="idPersona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="puesto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idUsuario" Type="Int32" />
+    <NavigationProperty Name="Pedidoes" Relationship="Self.fk_Pedido_Persona" FromRole="Persona" ToRole="Pedido" />
+    <NavigationProperty Name="Usuario" Relationship="Self.fk_Persona_Usuarios" FromRole="Persona" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Producto">
     <Key>
       <PropertyRef Name="idProd" />
     </Key>
@@ -35,17 +52,7 @@
     <Property Name="precio" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="estado" Type="Int32" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
-  <EntityType Name="Usuarios">
+  <EntityType Name="Usuario">
     <Key>
       <PropertyRef Name="idUser" />
     </Key>
@@ -53,6 +60,7 @@
     <Property Name="nameUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="passUser" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="rol" Type="Int32" />
+    <NavigationProperty Name="Personas" Relationship="Self.fk_Persona_Usuarios" FromRole="Usuarios" ToRole="Persona" />
     <NavigationProperty Name="Vista" Relationship="Self.fk_usuario_Vista" FromRole="Usuarios" ToRole="Vista" />
   </EntityType>
   <EntityType Name="Vista">
@@ -64,11 +72,39 @@
     <Property Name="estado" Type="Int32" />
     <NavigationProperty Name="Usuarios" Relationship="Self.fk_usuario_Vista" FromRole="Vista" ToRole="Usuarios" />
   </EntityType>
+  <Association Name="fk_Pedido_Persona">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="idPersona" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="idPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Persona_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuario" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Persona" Type="Self.Persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="Persona">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_usuario_Vista">
     <End Role="Vista" Type="Self.Vista" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <End Role="Usuarios" Type="Self.Usuario" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Vista">
         <PropertyRef Name="idVista" />
@@ -79,15 +115,23 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="ParcialUnoEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Accion" EntityType="Self.Accion" />
-    <EntitySet Name="MateriaPrima" EntityType="Self.MateriaPrima" />
-    <EntitySet Name="Medida" EntityType="Self.Medida" />
-    <EntitySet Name="Productos" EntityType="Self.Productos" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
-    <EntitySet Name="Vista" EntityType="Self.Vista" />
+    <EntitySet Name="Accions" EntityType="Self.Accion" />
+    <EntitySet Name="MateriaPrimas" EntityType="Self.MateriaPrima" />
+    <EntitySet Name="Pedidoes" EntityType="Self.Pedido" />
+    <EntitySet Name="Personas" EntityType="Self.Persona" />
+    <EntitySet Name="Productos" EntityType="Self.Producto" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+    <EntitySet Name="Vistas" EntityType="Self.Vista" />
+    <AssociationSet Name="fk_Pedido_Persona" Association="Self.fk_Pedido_Persona">
+      <End Role="Persona" EntitySet="Personas" />
+      <End Role="Pedido" EntitySet="Pedidoes" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Persona_Usuarios" Association="Self.fk_Persona_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Persona" EntitySet="Personas" />
+    </AssociationSet>
     <AssociationSet Name="fk_usuario_Vista" Association="Self.fk_usuario_Vista">
-      <End Role="Vista" EntitySet="Vista" />
+      <End Role="Vista" EntitySet="Vistas" />
       <End Role="Usuarios" EntitySet="Usuarios" />
     </AssociationSet>
   </EntityContainer>

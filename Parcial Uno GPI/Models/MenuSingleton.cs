@@ -13,7 +13,7 @@ namespace Parcial_Uno_GPI.Models
         public MenuSingleton()
         {
             ParcialUnoEntities contexto = new ParcialUnoEntities();
-            var data = contexto.Accion.ToList();
+            var data = contexto.Accions.ToList();
             texto1 = data.Where(x => x.idAccion == 1).First().accion1;
             
         }

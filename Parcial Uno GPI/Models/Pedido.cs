@@ -12,10 +12,12 @@ namespace Parcial_Uno_GPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Accion
+    public partial class Pedido
     {
-        public int idAccion { get; set; }
-        public string accion1 { get; set; }
-        public Nullable<int> estado { get; set; }
+        public int idPedido { get; set; }
+        public Nullable<int> idPersona { get; set; }
+        public Nullable<System.DateTime> fechaPedido { get; set; }
+    
+        public virtual Persona Persona { get; set; }
     }
 }
