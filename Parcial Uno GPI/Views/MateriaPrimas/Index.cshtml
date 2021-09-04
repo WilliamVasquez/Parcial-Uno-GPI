@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Parcial_Uno_GPI.Models.MateriaPrima>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="display-4 text-center">MATERIA PRIMA</h2>
+
+<div class="my-3 p-3">
+    <input type="button" name="btnAgregar" value="Agregar" class="btn btn-primary btn-lg" onclick="location.href = '@Url.Action("Create", "MateriaPrimas")'" />
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.nombreMat)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.descripcionMat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.stock)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.stockMinimo)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.medida)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.estado)
+            </th>
+            <th scope="col">Opciones</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreMat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcionMat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stockMinimo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.medida)
+        </td>
+        <td>
+
+            @if (item.estado == 1)
+            {
+                <span class="badge badge-success">Disponible</span>
+            }
+            else
+            {
+                <span class="badge badge-secondary">No Disponible</span>
+            }
+        </td>
+        <td>
+            <div class="btn-group">
+                @Html.ActionLink("Editar", "Edit", new { id = item.idMaterial }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Detalles", "Details", new { id = item.idMaterial }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Dar de baja", "Delete", new { id = item.idMaterial }, new { @class = "btn btn-danger" })
+            </div>
+
+        </td>
+    </tr>
+        }
+
+    </table>
+
+</div>
