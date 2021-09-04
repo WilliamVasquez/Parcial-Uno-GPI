@@ -263,3 +263,4 @@ C:\Users\rodri.DESKTOP-UO2ABRG\Source\Repos\WilliamVasquez\Parcial-Uno-GPI\Parci
 C:\Users\rodri.DESKTOP-UO2ABRG\Source\Repos\WilliamVasquez\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.WebPages.Razor.xml
 C:\Users\rodri.DESKTOP-UO2ABRG\Source\Repos\WilliamVasquez\Parcial-Uno-GPI\Parcial Uno GPI\bin\Antlr3.Runtime.pdb
 C:\Users\rodri.DESKTOP-UO2ABRG\Source\Repos\WilliamVasquez\Parcial-Uno-GPI\Parcial Uno GPI\obj\Debug\Parcial Uno GPI.csproj.CopyComplete
+C:\Users\rodri.DESKTOP-UO2ABRG\Source\Repos\WilliamVasquez\Parcial-Uno-GPI\Parcial Uno GPI\obj\Debug\Parcial Uno GPI.csprojAssemblyReference.cache

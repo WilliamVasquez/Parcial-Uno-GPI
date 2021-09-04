@@ -11,15 +11,28 @@ namespace Parcial_Uno_GPI.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class MateriaPrima
     {
         public int idMaterial { get; set; }
+        [Display(Name = "Nombre del material")]
+        [Required]
         public string nombreMat { get; set; }
+        [Display(Name = "Descripción")]
+        [Required]
         public string descripcionMat { get; set; }
+        [Display(Name = "Stock Total")]
+        [Required]
         public Nullable<double> stock { get; set; }
+        [Display(Name = "Medida")]
+        [Required]
         public string medida { get; set; }
+        [Display(Name = "Stock Minimo")]
+        [Required]
         public Nullable<double> stockMinimo { get; set; }
+        [Display(Name = "Estado Actual")]
+        [Required]
         public Nullable<int> estado { get; set; }
     }
 }

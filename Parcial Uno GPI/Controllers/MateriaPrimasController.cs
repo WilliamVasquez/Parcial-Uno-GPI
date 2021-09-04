@@ -111,6 +111,7 @@ namespace Parcial_Uno_GPI.Controllers
         {
             if (ModelState.IsValid)
             {
+                materiaPrima.estado = 0;
                 db.Entry(materiaPrima).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
