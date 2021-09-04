@@ -42,7 +42,7 @@
     <NavigationProperty Name="Pedido" Relationship="Self.fk_Pedido_Persona" FromRole="Persona" ToRole="Pedido" />
     <NavigationProperty Name="Usuarios" Relationship="Self.fk_Persona_Usuarios" FromRole="Persona" ToRole="Usuarios" />
   </EntityType>
-  <EntityType Name="Producto">
+  <EntityType Name="Productos">
     <Key>
       <PropertyRef Name="idProd" />
     </Key>
@@ -51,6 +51,16 @@
     <Property Name="descripcionProd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="precio" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="estado" Type="Int32" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Usuarios">
     <Key>
@@ -104,7 +114,7 @@
     <End Role="Vista" Type="Self.Vista" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Usuarios" Type="Self.Usuario" Multiplicity="*" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Vista">
         <PropertyRef Name="idVista" />
@@ -120,6 +130,7 @@
     <EntitySet Name="Pedido" EntityType="Self.Pedido" />
     <EntitySet Name="Persona" EntityType="Self.Persona" />
     <EntitySet Name="Productos" EntityType="Self.Productos" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
     <EntitySet Name="Vista" EntityType="Self.Vista" />
     <AssociationSet Name="fk_Pedido_Persona" Association="Self.fk_Pedido_Persona">
@@ -131,7 +142,7 @@
       <End Role="Persona" EntitySet="Persona" />
     </AssociationSet>
     <AssociationSet Name="fk_usuario_Vista" Association="Self.fk_usuario_Vista">
-      <End Role="Vista" EntitySet="Vistas" />
+      <End Role="Vista" EntitySet="Vista" />
       <End Role="Usuarios" EntitySet="Usuarios" />
     </AssociationSet>
   </EntityContainer>

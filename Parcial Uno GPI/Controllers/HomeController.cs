@@ -32,12 +32,12 @@ namespace Parcial_Uno_GPI.Controllers
             return RedirectToAction("Index");
         }
         [HttpPost]
-        public JsonResult ValidUser(Usuario us)
+        public JsonResult ValidUser(Usuarios us)
         {
             try
             {
                 var data = (from cu in contexto.Usuarios
-                            join cp in contexto.Vistas on cu.rol equals cp.idVista
+                            join cp in contexto.Vista on cu.rol equals cp.idVista
                             where (cu.nameUser == us.nameUser)
                             select new
                             {
@@ -65,7 +65,7 @@ namespace Parcial_Uno_GPI.Controllers
         public ActionResult Alertas()
         {
             string h = "0";
-            List<MateriaPrima> data = contexto.MateriaPrimas.ToList();
+            List<MateriaPrima> data = contexto.MateriaPrima.ToList();
             ViewBag.alertas = data.Where(x => x.estado.ToString().Equals(h)).ToList();
             return View();
         }

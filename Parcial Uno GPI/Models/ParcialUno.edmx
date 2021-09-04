@@ -62,6 +62,16 @@ advertencia 6013: La tabla o vista 'Ex1GPI.dbo.ProductosMaterial' no tiene defin
           <Property Name="cantidad" Type="float" />
           <Property Name="medida" Type="varchar" MaxLength="10" />
         </EntityType>-->
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <!--Errores durante la generación:
 advertencia 6013: La tabla o vista 'Ex1GPI.dbo.UsuarioAccion' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="UsuarioAccion">
@@ -153,12 +163,13 @@ error 6004: Una relación hace referencia a la tabla 'Ex1GPI.dbo.Venta', pero no
         <!--Errores durante la generación:
 error 6004: Una relación hace referencia a la tabla 'Ex1GPI.dbo.Venta', pero no se encuentra la tabla.
         <Association Name="fk_Venta_Productos" />-->
-        <EntityContainer Name="Ex1GPIModelStoreContainer">
+        <EntityContainer Name="ParcialUnoModelStoreContainer">
           <EntitySet Name="Accion" EntityType="Self.Accion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MateriaPrima" EntityType="Self.MateriaPrima" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vista" EntityType="Self.Vista" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="fk_Pedido_Persona" Association="Self.fk_Pedido_Persona">
@@ -221,7 +232,7 @@ error 6004: Una relación hace referencia a la tabla 'Ex1GPI.dbo.Venta', pero no
           <NavigationProperty Name="Pedido" Relationship="Self.fk_Pedido_Persona" FromRole="Persona" ToRole="Pedido" />
           <NavigationProperty Name="Usuarios" Relationship="Self.fk_Persona_Usuarios" FromRole="Persona" ToRole="Usuarios" />
         </EntityType>
-        <EntityType Name="Producto">
+        <EntityType Name="Productos">
           <Key>
             <PropertyRef Name="idProd" />
           </Key>
@@ -230,6 +241,16 @@ error 6004: Una relación hace referencia a la tabla 'Ex1GPI.dbo.Venta', pero no
           <Property Name="descripcionProd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="precio" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="estado" Type="Int32" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -283,7 +304,7 @@ error 6004: Una relación hace referencia a la tabla 'Ex1GPI.dbo.Venta', pero no
           <End Role="Vista" Type="Self.Vista" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Usuarios" Type="Self.Usuario" Multiplicity="*" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Vista">
               <PropertyRef Name="idVista" />
@@ -299,6 +320,7 @@ error 6004: Una relación hace referencia a la tabla 'Ex1GPI.dbo.Venta', pero no
           <EntitySet Name="Pedido" EntityType="Self.Pedido" />
           <EntitySet Name="Persona" EntityType="Self.Persona" />
           <EntitySet Name="Productos" EntityType="Self.Productos" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
           <EntitySet Name="Vista" EntityType="Self.Vista" />
           <AssociationSet Name="fk_Pedido_Persona" Association="Self.fk_Pedido_Persona">
@@ -310,7 +332,7 @@ error 6004: Una relación hace referencia a la tabla 'Ex1GPI.dbo.Venta', pero no
             <End Role="Persona" EntitySet="Persona" />
           </AssociationSet>
           <AssociationSet Name="fk_usuario_Vista" Association="Self.fk_usuario_Vista">
-            <End Role="Vista" EntitySet="Vistas" />
+            <End Role="Vista" EntitySet="Vista" />
             <End Role="Usuarios" EntitySet="Usuarios" />
           </AssociationSet>
         </EntityContainer>
@@ -320,7 +342,7 @@ error 6004: Una relación hace referencia a la tabla 'Ex1GPI.dbo.Venta', pero no
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ParcialUnoModelStoreContainer" CdmEntityContainer="ParcialUnoEntities">
-          <EntitySetMapping Name="Accions">
+          <EntitySetMapping Name="Accion">
             <EntityTypeMapping TypeName="ParcialUnoModel.Accion">
               <MappingFragment StoreEntitySet="Accion">
                 <ScalarProperty Name="idAccion" ColumnName="idAccion" />
@@ -329,7 +351,7 @@ error 6004: Una relación hace referencia a la tabla 'Ex1GPI.dbo.Venta', pero no
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="MateriaPrimas">
+          <EntitySetMapping Name="MateriaPrima">
             <EntityTypeMapping TypeName="ParcialUnoModel.MateriaPrima">
               <MappingFragment StoreEntitySet="MateriaPrima">
                 <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
@@ -343,7 +365,7 @@ error 6004: Una relación hace referencia a la tabla 'Ex1GPI.dbo.Venta', pero no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pedido">
-            <EntityTypeMapping TypeName="Ex1GPIModel.Pedido">
+            <EntityTypeMapping TypeName="ParcialUnoModel.Pedido">
               <MappingFragment StoreEntitySet="Pedido">
                 <ScalarProperty Name="idPedido" ColumnName="idPedido" />
                 <ScalarProperty Name="idPersona" ColumnName="idPersona" />
@@ -352,7 +374,7 @@ error 6004: Una relación hace referencia a la tabla 'Ex1GPI.dbo.Venta', pero no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Persona">
-            <EntityTypeMapping TypeName="Ex1GPIModel.Persona">
+            <EntityTypeMapping TypeName="ParcialUnoModel.Persona">
               <MappingFragment StoreEntitySet="Persona">
                 <ScalarProperty Name="idPersona" ColumnName="idPersona" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -364,7 +386,7 @@ error 6004: Una relación hace referencia a la tabla 'Ex1GPI.dbo.Venta', pero no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Productos">
-            <EntityTypeMapping TypeName="ParcialUnoModel.Producto">
+            <EntityTypeMapping TypeName="ParcialUnoModel.Productos">
               <MappingFragment StoreEntitySet="Productos">
                 <ScalarProperty Name="idProd" ColumnName="idProd" />
                 <ScalarProperty Name="nombreProd" ColumnName="nombreProd" />
@@ -374,8 +396,19 @@ error 6004: Una relación hace referencia a la tabla 'Ex1GPI.dbo.Venta', pero no
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ParcialUnoModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Usuarios">
-            <EntityTypeMapping TypeName="ParcialUnoModel.Usuario">
+            <EntityTypeMapping TypeName="ParcialUnoModel.Usuarios">
               <MappingFragment StoreEntitySet="Usuarios">
                 <ScalarProperty Name="idUser" ColumnName="idUser" />
                 <ScalarProperty Name="nameUser" ColumnName="nameUser" />
@@ -384,7 +417,7 @@ error 6004: Una relación hace referencia a la tabla 'Ex1GPI.dbo.Venta', pero no
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Vistas">
+          <EntitySetMapping Name="Vista">
             <EntityTypeMapping TypeName="ParcialUnoModel.Vista">
               <MappingFragment StoreEntitySet="Vista">
                 <ScalarProperty Name="idVista" ColumnName="idVista" />
@@ -407,7 +440,7 @@ error 6004: Una relación hace referencia a la tabla 'Ex1GPI.dbo.Venta', pero no
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />

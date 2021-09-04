@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ParcialUnoModelStoreContainer" CdmEntityContainer="ParcialUnoEntities">
-    <EntitySetMapping Name="Accions">
+    <EntitySetMapping Name="Accion">
       <EntityTypeMapping TypeName="ParcialUnoModel.Accion">
         <MappingFragment StoreEntitySet="Accion">
           <ScalarProperty Name="idAccion" ColumnName="idAccion" />
@@ -10,7 +10,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="MateriaPrimas">
+    <EntitySetMapping Name="MateriaPrima">
       <EntityTypeMapping TypeName="ParcialUnoModel.MateriaPrima">
         <MappingFragment StoreEntitySet="MateriaPrima">
           <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
@@ -24,7 +24,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Pedido">
-      <EntityTypeMapping TypeName="Ex1GPIModel.Pedido">
+      <EntityTypeMapping TypeName="ParcialUnoModel.Pedido">
         <MappingFragment StoreEntitySet="Pedido">
           <ScalarProperty Name="idPedido" ColumnName="idPedido" />
           <ScalarProperty Name="idPersona" ColumnName="idPersona" />
@@ -33,7 +33,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Persona">
-      <EntityTypeMapping TypeName="Ex1GPIModel.Persona">
+      <EntityTypeMapping TypeName="ParcialUnoModel.Persona">
         <MappingFragment StoreEntitySet="Persona">
           <ScalarProperty Name="idPersona" ColumnName="idPersona" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -45,7 +45,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Productos">
-      <EntityTypeMapping TypeName="ParcialUnoModel.Producto">
+      <EntityTypeMapping TypeName="ParcialUnoModel.Productos">
         <MappingFragment StoreEntitySet="Productos">
           <ScalarProperty Name="idProd" ColumnName="idProd" />
           <ScalarProperty Name="nombreProd" ColumnName="nombreProd" />
@@ -55,8 +55,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ParcialUnoModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Usuarios">
-      <EntityTypeMapping TypeName="ParcialUnoModel.Usuario">
+      <EntityTypeMapping TypeName="ParcialUnoModel.Usuarios">
         <MappingFragment StoreEntitySet="Usuarios">
           <ScalarProperty Name="idUser" ColumnName="idUser" />
           <ScalarProperty Name="nameUser" ColumnName="nameUser" />
@@ -65,7 +76,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Vistas">
+    <EntitySetMapping Name="Vista">
       <EntityTypeMapping TypeName="ParcialUnoModel.Vista">
         <MappingFragment StoreEntitySet="Vista">
           <ScalarProperty Name="idVista" ColumnName="idVista" />

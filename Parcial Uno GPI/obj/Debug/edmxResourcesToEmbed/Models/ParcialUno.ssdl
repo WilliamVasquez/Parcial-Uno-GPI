@@ -57,6 +57,16 @@ advertencia 6013: La tabla o vista 'Ex1GPI.dbo.ProductosMaterial' no tiene defin
           <Property Name="cantidad" Type="float" />
           <Property Name="medida" Type="varchar" MaxLength="10" />
         </EntityType>-->
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
   <!--Errores durante la generación:
 advertencia 6013: La tabla o vista 'Ex1GPI.dbo.UsuarioAccion' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="UsuarioAccion">
@@ -148,12 +158,13 @@ error 6004: Una relación hace referencia a la tabla 'Ex1GPI.dbo.Venta', pero no
   <!--Errores durante la generación:
 error 6004: Una relación hace referencia a la tabla 'Ex1GPI.dbo.Venta', pero no se encuentra la tabla.
         <Association Name="fk_Venta_Productos" />-->
-  <EntityContainer Name="Ex1GPIModelStoreContainer">
+  <EntityContainer Name="ParcialUnoModelStoreContainer">
     <EntitySet Name="Accion" EntityType="Self.Accion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MateriaPrima" EntityType="Self.MateriaPrima" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Vista" EntityType="Self.Vista" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="fk_Pedido_Persona" Association="Self.fk_Pedido_Persona">

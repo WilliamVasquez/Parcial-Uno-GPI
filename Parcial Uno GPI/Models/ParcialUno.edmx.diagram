@@ -4,17 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="966f9c8163864b0189237d4fd656955a" Name="Diagram1">
-        <EntityTypeShape EntityType="Ex1GPIModel.Accion" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Ex1GPIModel.MateriaPrima" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Ex1GPIModel.Pedido" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Ex1GPIModel.Persona" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="Ex1GPIModel.Productos" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Ex1GPIModel.Usuarios" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Ex1GPIModel.Vista" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <AssociationConnector Association="Ex1GPIModel.fk_Pedido_Persona" ManuallyRouted="false" />
-        <AssociationConnector Association="Ex1GPIModel.fk_Persona_Usuarios" ManuallyRouted="false" />
-        <AssociationConnector Association="Ex1GPIModel.fk_usuario_Vista" ManuallyRouted="false" />
+      <Diagram DiagramId="013419e4512c48529358ffd33d333189" Name="Diagram1">
+        <EntityTypeShape EntityType="ParcialUnoModel.Accion" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParcialUnoModel.MateriaPrima" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParcialUnoModel.Pedido" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParcialUnoModel.Persona" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParcialUnoModel.Productos" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParcialUnoModel.sysdiagrams" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParcialUnoModel.Usuarios" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParcialUnoModel.Vista" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="ParcialUnoModel.fk_Pedido_Persona" ManuallyRouted="false" />
+        <AssociationConnector Association="ParcialUnoModel.fk_Persona_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="ParcialUnoModel.fk_usuario_Vista" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

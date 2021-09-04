@@ -12,14 +12,12 @@ namespace Parcial_Uno_GPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class MateriaPrima
+    public partial class sysdiagrams
     {
-        public int idMaterial { get; set; }
-        public string nombreMat { get; set; }
-        public string descripcionMat { get; set; }
-        public Nullable<double> stock { get; set; }
-        public string medida { get; set; }
-        public Nullable<double> stockMinimo { get; set; }
-        public Nullable<int> estado { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
