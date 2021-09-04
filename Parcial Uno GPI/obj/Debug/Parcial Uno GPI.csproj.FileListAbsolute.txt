@@ -65,3 +65,135 @@ C:\Users\WilliamVasquez\source\repos\Parcial Uno GPI\Parcial Uno GPI\obj\Debug\P
 C:\Users\WilliamVasquez\source\repos\Parcial Uno GPI\Parcial Uno GPI\obj\Debug\Parcial Uno GPI.dll
 C:\Users\WilliamVasquez\source\repos\Parcial Uno GPI\Parcial Uno GPI\obj\Debug\Parcial Uno GPI.pdb
 C:\Users\WilliamVasquez\source\repos\Parcial Uno GPI\Parcial Uno GPI\obj\Debug\Parcial Uno GPI.csproj.AssemblyReference.cache
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\obj\Debug\Parcial Uno GPI.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\obj\Debug\Parcial Uno GPI.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\obj\Debug\Parcial Uno GPI.pdb
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\Parcial Uno GPI.dll.config
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\Parcial Uno GPI.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\Parcial Uno GPI.pdb
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\csc.exe
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\csc.exe.config
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\csc.rsp
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\csi.exe
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\csi.exe.config
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\csi.rsp
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\System.Buffers.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\System.Memory.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\System.Numerics.Vectors.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\vbc.exe
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\vbc.exe.config
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\vbc.rsp
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\VBCSCompiler.exe
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\Antlr3.Runtime.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\BCrypt.Net.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\EntityFramework.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\EntityFramework.SqlServer.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\Newtonsoft.Json.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.Helpers.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.Mvc.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.Optimization.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.Razor.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.WebPages.Deployment.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.WebPages.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.WebPages.Razor.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\WebGrease.dll
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\BCrypt.Net.pdb
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\BCrypt.Net.xml
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\EntityFramework.xml
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\EntityFramework.SqlServer.xml
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\Newtonsoft.Json.xml
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.Helpers.xml
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.Mvc.xml
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.Optimization.xml
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.Razor.xml
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.WebPages.xml
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.WebPages.Deployment.xml
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.WebPages.Razor.xml
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\bin\Antlr3.Runtime.pdb
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\obj\Debug\Parcial Uno GPI.csproj.CopyComplete
+C:\Users\LENOVO\Documents\GitHub\Parcial-Uno-GPI\Parcial Uno GPI\obj\Debug\Parcial Uno GPI.csproj.AssemblyReference.cache
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\Parcial Uno GPI.dll.config
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\Parcial Uno GPI.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\Parcial Uno GPI.pdb
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\csc.exe
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\csc.exe.config
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\csc.rsp
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\csi.exe
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\csi.exe.config
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\csi.rsp
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\System.Buffers.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\System.Memory.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\System.Numerics.Vectors.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\vbc.exe
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\vbc.exe.config
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\vbc.rsp
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\VBCSCompiler.exe
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\Antlr3.Runtime.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\BCrypt.Net.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\EntityFramework.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\EntityFramework.SqlServer.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\Newtonsoft.Json.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.Helpers.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.Mvc.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.Optimization.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.Razor.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.WebPages.Deployment.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.WebPages.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.WebPages.Razor.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\WebGrease.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\BCrypt.Net.pdb
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\BCrypt.Net.xml
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\EntityFramework.xml
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\EntityFramework.SqlServer.xml
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\Newtonsoft.Json.xml
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.Helpers.xml
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.Mvc.xml
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.Optimization.xml
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.Razor.xml
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.WebPages.xml
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.WebPages.Deployment.xml
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\System.Web.WebPages.Razor.xml
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\bin\Antlr3.Runtime.pdb
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\obj\Debug\Parcial Uno GPI.csprojResolveAssemblyReference.cache
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\obj\Debug\Parcial Uno GPI.dll
+C:\Users\ivan_hernandez\Music\Parcial Uno GPI\Parcial-Uno-GPI\Parcial Uno GPI\obj\Debug\Parcial Uno GPI.pdb
