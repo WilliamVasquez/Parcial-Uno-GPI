@@ -78,10 +78,7 @@
 
         <div class="my-5 d-flex justify-content-center align-content-center">
             <div class="mx-3">
-                @Html.ActionLink("Editar", "Edit", new { id = Model.idMaterial,
-               @class = "btn btn-secondary" })
-
-
+                @Html.ActionLink("Editar", "Edit", new { id = Model.idMaterial}, htmlAttributes: new { @class = "btn btn-info" })
             </div>
 
             <div class="mx-3">
