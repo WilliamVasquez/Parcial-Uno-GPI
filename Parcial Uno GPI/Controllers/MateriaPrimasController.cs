@@ -107,11 +107,14 @@ namespace Parcial_Uno_GPI.Controllers
         // POST: MateriaPrimas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed([Bind(Include = "idMaterial,nombreMat,descripcionMat,stock,medida,stockMinimo,estado")] MateriaPrima materiaPrima)
         {
-            MateriaPrima materiaPrima = db.MateriaPrima.Find(id);
-            db.MateriaPrima.Remove(materiaPrima);
-            db.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                db.Entry(materiaPrima).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
             return RedirectToAction("Index");
         }
 

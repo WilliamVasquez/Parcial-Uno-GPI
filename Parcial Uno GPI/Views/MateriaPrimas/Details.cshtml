@@ -1,66 +1,96 @@
 ﻿@model Parcial_Uno_GPI.Models.MateriaPrima
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalles  Materia Prima";
 }
 
-<h2>Details</h2>
+ 
+    <div class="container">
+        <div class="text-center text-uppercase text-danger my-5">
+            <h1 class="display-6">Detalles Materia Prima</h1>
+        </div>
+        <hr /> 
 
-<div>
-    <h4>MateriaPrima</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nombreMat)
-        </dt>
+        <div class="mb-3 row">
+            <div class="col">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.nombreMat, htmlAttributes: new { @class = "form-label badge badge-primary" })
+                    <div class="col">
+                        @Html.DisplayFor(model => model.nombreMat)
+                         
+                    </div>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombreMat)
-        </dd>
+            <div class="col">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.descripcionMat, htmlAttributes: new { @class = "form-label badge badge-primary" })
+                    <div class="col">
+                        @Html.DisplayFor(model => model.descripcionMat)
+                       
+                    </div>
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.descripcionMat)
-        </dt>
+            <div class="col">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.medida, htmlAttributes: new { @class = "form-label badge badge-primary" })
+                    <div class="col-md-10">
+                        @Html.DisplayFor(model => model.medida)
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.descripcionMat)
-        </dd>
+        <div class="mb-3 row">
+            <div class="col">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.stock, htmlAttributes: new { @class = "form-label badge badge-primary" })
+                    <div class="col">
+                        @Html.DisplayFor(model => model.stock)
+                     
+                    </div>
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.stock)
-        </dt>
+            <div class="col">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.stockMinimo, htmlAttributes: new { @class = "form-label badge badge-primary" })
+                    <div class="col">
+                        @Html.DisplayFor(model => model.stockMinimo)
+                     
+                    </div>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.stock)
-        </dd>
+            <div class="col">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.medida)
-        </dt>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.estado, htmlAttributes: new { @class = "form-label badge badge-primary" })
+                    <div class="col">
+                        @Html.DisplayFor(model => model.estado)
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.medida)
-        </dd>
+        <div class="my-5 d-flex justify-content-center align-content-center">
+            <div class="mx-3">
+                @Html.ActionLink("Editar", "Edit", new { id = Model.idMaterial,
+               @class = "btn btn-secondary" })
 
-        <dt>
-            @Html.DisplayNameFor(model => model.stockMinimo)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.stockMinimo)
-        </dd>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.estado)
-        </dt>
+            <div class="mx-3">
+                <input type="button" name="btnAgregar" value="Regresar" class="btn btn-secondary" onclick="location.href = '@Url.Action("Index", "MateriaPrimas")'" />
+            </div>
+        </div>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.estado)
-        </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idMaterial }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
