@@ -14,11 +14,11 @@ namespace Parcial_Uno_GPI.Controllers
         public ActionResult Index()
         {
             if (Session["permiso"] != null)
-                return RedirectToAction("Home");
+                return RedirectToAction(Session["permiso"].ToString());
             else
                 return View();
         }
-        public ActionResult Home()
+        public ActionResult Admin()
         {
             if (Session["permiso"] != null)
                 return View();

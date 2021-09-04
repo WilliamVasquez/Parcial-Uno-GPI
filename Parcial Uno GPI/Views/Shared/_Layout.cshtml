@@ -27,7 +27,7 @@
                 @{
                     if (Session["permiso"] != null)
                     {
-                        <li class="nav-item">@Html.ActionLink(MenuSingleton.Instance.texto1, "Home", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink(MenuSingleton.Instance.texto1, MenuSingleton.Instance.texto1, "Home", new { area = "" }, new { @class = "nav-link" })</li>
                         <span class="d-inline-flex justify-content-end">
                         <li class="nav-item mr-3"><a class="nav-link text-white">usuario: @Session["nombre"]</a></li>
                         <li class="nav-item text-white" style="display:block ruby"><i class="fad fa-sign-out"></i>@Html.ActionLink(" Logout", "LogOut", "Home", new { area = "" }, new { @class = "nav-link" })</li>
