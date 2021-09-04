@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Ex1GPIModelStoreContainer" CdmEntityContainer="ParcialUnoEntities">
-    <EntitySetMapping Name="Accion">
-      <EntityTypeMapping TypeName="Ex1GPIModel.Accion">
+  <EntityContainerMapping StorageEntityContainer="ParcialUnoModelStoreContainer" CdmEntityContainer="ParcialUnoEntities">
+    <EntitySetMapping Name="Accions">
+      <EntityTypeMapping TypeName="ParcialUnoModel.Accion">
         <MappingFragment StoreEntitySet="Accion">
           <ScalarProperty Name="idAccion" ColumnName="idAccion" />
           <ScalarProperty Name="accion1" ColumnName="accion" />
@@ -10,8 +10,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="MateriaPrima">
-      <EntityTypeMapping TypeName="Ex1GPIModel.MateriaPrima">
+    <EntitySetMapping Name="MateriaPrimas">
+      <EntityTypeMapping TypeName="ParcialUnoModel.MateriaPrima">
         <MappingFragment StoreEntitySet="MateriaPrima">
           <ScalarProperty Name="idMaterial" ColumnName="idMaterial" />
           <ScalarProperty Name="nombreMat" ColumnName="nombreMat" />
@@ -45,7 +45,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Productos">
-      <EntityTypeMapping TypeName="Ex1GPIModel.Productos">
+      <EntityTypeMapping TypeName="ParcialUnoModel.Producto">
         <MappingFragment StoreEntitySet="Productos">
           <ScalarProperty Name="idProd" ColumnName="idProd" />
           <ScalarProperty Name="nombreProd" ColumnName="nombreProd" />
@@ -56,7 +56,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Usuarios">
-      <EntityTypeMapping TypeName="Ex1GPIModel.Usuarios">
+      <EntityTypeMapping TypeName="ParcialUnoModel.Usuario">
         <MappingFragment StoreEntitySet="Usuarios">
           <ScalarProperty Name="idUser" ColumnName="idUser" />
           <ScalarProperty Name="nameUser" ColumnName="nameUser" />
@@ -65,8 +65,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Vista">
-      <EntityTypeMapping TypeName="Ex1GPIModel.Vista">
+    <EntitySetMapping Name="Vistas">
+      <EntityTypeMapping TypeName="ParcialUnoModel.Vista">
         <MappingFragment StoreEntitySet="Vista">
           <ScalarProperty Name="idVista" ColumnName="idVista" />
           <ScalarProperty Name="vista1" ColumnName="vista" />

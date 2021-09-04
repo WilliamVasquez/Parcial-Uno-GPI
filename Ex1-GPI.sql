@@ -138,3 +138,37 @@ ALTER TABLE UsuarioAccion ADD CONSTRAINT fk_usuario_UsuarioAccion FOREIGN KEY (i
 ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE UsuarioAccion ADD CONSTRAINT fk_Accion_UsuarioAccion FOREIGN KEY (idAccion) REFERENCES Accion (idAccion)
 ON UPDATE CASCADE ON DELETE CASCADE;
+
+/*create trigger dbo.something after insert as
+begin
+    if exists ( select * from inserted where sum(credits) > 30 )
+    begin
+       
+    end
+end*/
+
+GO
+CREATE TRIGGER TR_STATUS_STOCK ON MateriaPrima
+AFTER INSERT, UPDATE as
+Declare @cant FLOAT, @id int;
+	SET @cant = (select stock from inserted);
+	SET @id = (select idMaterial from inserted);
+	IF (@cant < (select stockMinimo from inserted))
+BEGIN
+		UPDATE MateriaPrima SET estado = 0 where idMaterial = @id;
+END
+GO
+CREATE TRIGGER TR_Verficar_STOCK ON Venta
+FOR INSERT, UPDATE as
+Declare @id INT, @status INT, @mat INT;
+	SET @id = (select idProd from inserted);
+	SET @mat = (select idMaterial from ProductosMaterial where idProd = @id)
+	IF EXISTS(select * from MateriaPrima where estado = 0 and idMaterial=(@mat))
+	BEGIN
+			rollback transaction
+			raiserror ('Material Insuficiente', 16, 1)
+	END
+
+INSERT INTO MateriaPrima VALUES('Maiz amarillo', 'Maiz amarillo', 10, 'quintal', 50, 1);
+
+select * from MateriaPrima;

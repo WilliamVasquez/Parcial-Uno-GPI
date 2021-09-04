@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Alertas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/tabla.css" rel="stylesheet" />
+<h2>Alertas</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="align-content: center">
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>MATERIAL</th>
+                        <th>CANTIDAD DISPINIBLE</th>
+                        <th>CANTIDAD MINIMA REQUERIDA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (Parcial_Uno_GPI.Models.MateriaPrima item in ViewBag.alertas)
+                        {
+                            <tr>
+                                <td>@item.idMaterial</td>
+                                <td>@item.nombreMat</td>
+                                <td style="font-weight: 900;color: #F85E5E;">@item.stock</td>
+                                <td style="font-weight: 900;color: #F85E5E;">@item.stockMinimo</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Ex1GPIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="ParcialUnoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Accion">
     <Key>
       <PropertyRef Name="idAccion" />
@@ -42,7 +42,7 @@
     <NavigationProperty Name="Pedido" Relationship="Self.fk_Pedido_Persona" FromRole="Persona" ToRole="Pedido" />
     <NavigationProperty Name="Usuarios" Relationship="Self.fk_Persona_Usuarios" FromRole="Persona" ToRole="Usuarios" />
   </EntityType>
-  <EntityType Name="Productos">
+  <EntityType Name="Producto">
     <Key>
       <PropertyRef Name="idProd" />
     </Key>
@@ -104,7 +104,7 @@
     <End Role="Vista" Type="Self.Vista" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <End Role="Usuarios" Type="Self.Usuario" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Vista">
         <PropertyRef Name="idVista" />
@@ -131,7 +131,7 @@
       <End Role="Persona" EntitySet="Persona" />
     </AssociationSet>
     <AssociationSet Name="fk_usuario_Vista" Association="Self.fk_usuario_Vista">
-      <End Role="Vista" EntitySet="Vista" />
+      <End Role="Vista" EntitySet="Vistas" />
       <End Role="Usuarios" EntitySet="Usuarios" />
     </AssociationSet>
   </EntityContainer>

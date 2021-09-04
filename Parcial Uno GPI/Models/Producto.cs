@@ -12,7 +12,7 @@ namespace Parcial_Uno_GPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Productos
+    public partial class Producto
     {
         public int idProd { get; set; }
         public string nombreProd { get; set; }
